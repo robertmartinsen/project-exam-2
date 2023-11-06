@@ -1,0 +1,1 @@
+{"version":3,"sources":["../exam-app/src/styles/App.scss"],"names":[],"mappings":"AAAA,KACI,gBAAA,CACA,YAAA,CACA,qBAAA","file":"App.min.css","sourcesContent":[".App {\n    min-height: 100vh;\n    display: flex;\n    flex-direction: column;\n}"]}

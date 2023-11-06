@@ -1,0 +1,1 @@
+{"version":3,"sources":["../exam-app/src/components/layout.scss"],"names":[],"mappings":"AAAA,kBACI,YAAA,CACA,qBAAA,CACA,gBAAA,CAEF,gBACE,MAAA","file":"layout.min.css","sourcesContent":[".layout-container {\n    display: flex;\n    flex-direction: column;\n    min-height: 100vh;\n  }\n  .layout-content {\n    flex: 1;\n  }"]}

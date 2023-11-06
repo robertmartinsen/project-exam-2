@@ -1,0 +1,18 @@
+@import "./../styles/variables.scss";
+
+.authBody {
+  background: linear-gradient($primary, $secondary);
+  padding-top: 50px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.register {
+  text-decoration: none;
+  color: red;
+}

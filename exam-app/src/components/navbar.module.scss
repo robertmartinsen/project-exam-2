@@ -1,0 +1,71 @@
+@import "./../styles/variables.scss";
+@import "~bootstrap";
+
+nav {
+  background: $primary;
+}
+
+$navbar-dark-color: $light;
+
+.bg-blue {
+  background-color: $bg;
+}
+
+.navbar-toggler-icon {
+  background-color: $light;
+}
+
+.iconPadding {
+  padding: 10px;
+}
+
+.myNavLink {
+  position: relative;
+  display: inline-block;
+  color: $light;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $light;
+    &:before {
+      width: 65%;
+      opacity: 75%;
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $dark;
+    transition: width 0.3s ease;
+  }
+
+  &.activeNavLink:before {
+    width: 65%;
+  }
+}
+
+.icon {
+  color: $light;
+  transition: color 0.3s ease;
+
+  &:hover,
+  &:focus {
+    color: $dark;
+  }
+}
+
+.iconActive {
+  color: $dark;
+}
+
+@media (max-width: 769px) {
+  li {
+    padding: 10px;
+  }
+}

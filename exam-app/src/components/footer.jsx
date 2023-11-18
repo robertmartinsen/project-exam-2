@@ -1,14 +1,17 @@
-import React from "react";
-import classes from "./footer.module.scss";
+import React from "react"
+import classes from "./footer.module.scss"
 
 function Footer() {
   return (
     <footer className={`${classes.footer} text-light text-center py-3`}>
-      <div className="container">
-        <p>&copy; {new Date().getFullYear()} eDay. All rights reserved.</p>
+      <div className="container text-center">
+        <p>
+          &copy; {new Date().getFullYear()} Holi
+          <span className="text-secondary">daze</span>. All rights reserved.
+        </p>
       </div>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

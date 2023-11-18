@@ -30,7 +30,6 @@ function Register() {
     if (form.checkValidity() === true && emailRegex.test(email)) {
       setError("")
       console.log("Registration successful with email:", email)
-      // Proceed with API call or further logic here
     } else {
       setError("Please use your Noroff student email to log in.")
     }

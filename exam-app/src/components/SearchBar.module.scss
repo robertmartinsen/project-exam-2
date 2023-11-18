@@ -1,0 +1,40 @@
+@import "../styles/variables.scss";
+
+.barsIcon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: white;
+  transform: scaleX(-1);
+  padding-left: 5px;
+  padding: 10px;
+  border-radius: 0px 8px 8px 0px;
+  border: 3px;
+  border-color: $primary;
+  background-color: $primary;
+
+  &:hover {
+    background-color: $bg;
+    transition: background-color 0.3s ease;
+  }
+}
+
+.searchBar {
+  border-color: $primary;
+  border-style: solid;
+  padding: 5px;
+}
+
+.searchButton {
+  padding: 5px 10px;
+  background-color: $primary;
+  color: white;
+  border: none;
+  border-radius: 0px 8px 8px 0px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $bg;
+    transition: background-color 0.3s ease;
+  }
+}

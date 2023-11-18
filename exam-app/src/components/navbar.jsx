@@ -15,9 +15,8 @@ function NavBar() {
     <nav className={`navbar navbar-expand-lg navbar-dark ${classes.nav}`}>
       <div className="container col-md-8">
         <a className="navbar-brand fs-4" href="/">
-          <span className="text-dark">V</span>enues
-          <span className="text-dark">F</span>or
-          <span className="text-dark">Y</span>ou
+          <span className="text-light">Holi</span>
+          <span className="text-secondary">daze</span>
         </a>
 
         <button
@@ -38,9 +37,8 @@ function NavBar() {
         >
           <div className="offcanvas-header text-white border-bottom">
             <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-              <span className="text-dark">V</span>enues
-              <span className="text-dark">F</span>or
-              <span className="text-dark">Y</span>ou
+              <span className="text-light">Holi</span>
+              <span className="text-primary">daze</span>
             </h5>
             <button
               className="btn-close btn-close-white shadow-none"

@@ -8,7 +8,7 @@ nav {
 $navbar-dark-color: $light;
 
 .bg-blue {
-  background-color: $bg;
+  background-color: $secondary;
 }
 
 .navbar-toggler-icon {
@@ -41,7 +41,7 @@ $navbar-dark-color: $light;
     left: 0;
     width: 0;
     height: 2px;
-    background: $dark;
+    background: $secondary;
     transition: width 0.3s ease;
   }
 
@@ -56,16 +56,48 @@ $navbar-dark-color: $light;
 
   &:hover,
   &:focus {
-    color: $dark;
+    color: $secondary;
   }
 }
 
 .iconActive {
-  color: $dark;
+  color: $secondary;
 }
 
 @media (max-width: 769px) {
   li {
     padding: 10px;
+  }
+
+  .myNavLink {
+    position: relative;
+    display: inline-block;
+    color: $light;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $light;
+      &:before {
+        width: 65%;
+        opacity: 75%;
+      }
+    }
+
+    &:before {
+      background: $primary;
+      transition: width 0.3s ease;
+    }
+  }
+
+  .icon {
+    &:hover,
+    &:focus {
+      color: $primary;
+    }
+  }
+
+  .iconActive {
+    color: $primary;
   }
 }

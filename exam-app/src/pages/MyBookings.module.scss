@@ -1,0 +1,16 @@
+@import "./../styles/variables.scss";
+
+.signInBtn {
+  font-size: 1rem;
+  text-decoration: none;
+  background-color: $primary;
+  color: white;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $hover;
+    transition: background-color 0.3s ease;
+  }
+}

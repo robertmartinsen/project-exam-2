@@ -11,6 +11,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser, faLock, faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import { NavLink } from "react-router-dom"
 import classes from "./Auth.module.scss"
+import { registerUser } from "../services/auth"
+import { useNavigate } from "react-router-dom"
 
 function Register() {
   const [name, setName] = useState("")
@@ -20,18 +22,55 @@ function Register() {
   const [error, setError] = useState("")
   const [venueManager, setVenueManager] = useState(false)
 
-  const handleSubmit = (event) => {
-    const form = event.currentTarget
+  const [nameError, setNameError] = useState("")
+  const [emailError, setEmailError] = useState("")
+  const [passwordError, setPasswordError] = useState("")
+
+  const validateName = (name) => /^[A-Za-z0-9_]+$/.test(name)
+  const validateEmail = (email) => /@stud\.noroff\.no$|@noroff\.no$/.test(email)
+  const validatePassword = (password) => password.length >= 8
+
+  const navigate = useNavigate()
+
+  const handleSubmit = async (event) => {
     event.preventDefault()
     event.stopPropagation()
 
-    const emailRegex = /@stud\.noroff\.no$/
+    setNameError("")
+    setEmailError("")
+    setPasswordError("")
 
-    if (form.checkValidity() === true && emailRegex.test(email)) {
-      setError("")
-      console.log("Registration successful with email:", email)
-    } else {
-      setError("Please use your Noroff student email to log in.")
+    if (!validateName(name)) {
+      setNameError("Name can only contain letters, numbers, and underscores.")
+      setValidated(false)
+      return
+    }
+
+    if (!validateEmail(email)) {
+      setEmailError("Please enter a valid Noroff email address.")
+      setValidated(false)
+      return
+    }
+
+    if (!validatePassword(password)) {
+      setPasswordError("Password must be at least 8 characters long.")
+      setValidated(false)
+      return
+    }
+
+    try {
+      const userData = {
+        name,
+        email,
+        password,
+        venueManager,
+      }
+      const response = await registerUser(userData)
+      console.log("Registration successful", response)
+      navigate("/Login")
+    } catch (error) {
+      console.error("Registration failed:", error)
+      setError("Registration failed: " + error.message)
     }
 
     setValidated(true)
@@ -42,12 +81,8 @@ function Register() {
       <div className="container">
         <div className={`container col-md-6 p-3 bg-light ${classes.card}`}>
           <h1 className="text-dark text-center fs-2">
-            Create an account with <span className="text-dark">V</span>
-            <span className="text-primary">enues</span>
-            <span className="text-dark">F</span>
-            <span className="text-primary">or</span>
-            <span className="text-dark">Y</span>
-            <span className="text-primary">ou</span>
+            Create an account with <span className="text-dark">Holi</span>
+            <span className="text-secondary">daze</span>
           </h1>
           <hr />
           {error && <Alert variant="danger">{error}</Alert>}
@@ -69,6 +104,7 @@ function Register() {
                   Please enter your name.
                 </Form.Control.Feedback>
               </InputGroup>
+              {nameError && <Alert variant="danger">{nameError}</Alert>}
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -89,6 +125,7 @@ function Register() {
                   Please enter a valid Noroff student email address.
                 </Form.Control.Feedback>
               </InputGroup>
+              {emailError && <Alert variant="danger">{emailError}</Alert>}
             </Form.Group>
 
             <Form.Group className="mb-2" controlId="formBasicPassword">
@@ -103,11 +140,13 @@ function Register() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
+                  autoComplete="current-password"
                 />
                 <Form.Control.Feedback type="invalid">
                   Password is required.
                 </Form.Control.Feedback>
               </InputGroup>
+              {passwordError && <Alert variant="danger">{passwordError}</Alert>}
             </Form.Group>
             <hr />
             <Form.Group className="mb-3">

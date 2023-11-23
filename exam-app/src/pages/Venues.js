@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
-import classes from "./Venues.module.scss"
+import classes from "../styles/pages/Venues.module.scss"
 import { NavLink } from "react-router-dom"
-import fetchVenues from "../services/venues"
+import fetchVenues from "../services/api/venues"
 import SearchBar from "../components/SearchBar"
 import { sortVenues } from "../utilities/sort"
 import { filterVenues } from "../utilities/filter"
@@ -84,7 +84,6 @@ function Venues() {
             <h3 className="pt-4 text-center text-dark">Upcoming Events</h3>
           </div>
           <div className="row pt-3">
-            
             {filteredVenues.map((venue) => (
               <div
                 key={venue.id}

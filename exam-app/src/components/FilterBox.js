@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import classes from "./FilterBox.module.scss"
+import classes from "../styles/components/FilterBox.module.scss"
 
 function FilterBox({
   onSortChange,

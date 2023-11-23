@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import classes from "./Home.module.scss"
+import classes from "../styles/pages/Home.module.scss"
 import { NavLink } from "react-router-dom"
-import fetchVenues from "../services/venues"
+import fetchVenues from "../services/api/venues"
 import Slider from "../components/Slider"
 
 function Home() {

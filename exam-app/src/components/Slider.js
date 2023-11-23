@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import Carousel from "react-bootstrap/Carousel"
-import fetchVenues from "../services/venues"
-import classes from "../components/Slider.module.scss"
+import fetchVenues from "../services/api/venues"
+import classes from "../styles/components/Slider.module.scss"
 
 function Slider() {
   const [venues, setVenues] = useState([])

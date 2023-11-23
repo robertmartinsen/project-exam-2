@@ -1,6 +1,6 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
-import classes from "./MyBookings.module.scss"
+import classes from "../styles/pages/MyBookings.module.scss"
 
 function MyBookings() {
   return (

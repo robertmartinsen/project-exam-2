@@ -1,4 +1,5 @@
 # project-exam-2
+![alt text](https://ibb.co/bXR2wvy)
 ## Holidaze
 
 ### Goal

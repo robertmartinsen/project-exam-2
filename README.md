@@ -1,4 +1,7 @@
 # project-exam-2
+
+![Alt text](/readme.png)
+
 ## Holidaze
 
 ### Goal

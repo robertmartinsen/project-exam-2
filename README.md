@@ -1,5 +1,5 @@
 # project-exam-2
-![alt text](https://ibb.co/bXR2wvy)
+[Skjermbilde-2023-12-04-kl-00-11-48.png](https://postimg.cc/hQSr5HFF)
 ## Holidaze
 
 ### Goal

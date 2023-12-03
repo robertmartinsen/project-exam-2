@@ -39,7 +39,7 @@ function VenueById() {
         ) {
           const venueData = await fetchVenueWithBookings(venueId, token)
           console.log("Venue data with bookings:", venueData)
-          setVenue(venueData) // Setting the venue state with the fetched data
+          setVenue(venueData)
         }
       } catch (error) {
         console.error("Error fetching venue details with bookings:", error)

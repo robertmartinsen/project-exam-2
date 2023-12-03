@@ -1,25 +1,22 @@
-import React, { useContext } from "react"
-import { useNavigate } from "react-router-dom"
-import { UserContext } from "../../utilities/UserContext"
-import { logout } from "../../services/logout"
+import React from "react"
+import ProfileCard from "../../components/ProfileCard"
+import CreateVenueForm from "../../components/CreateVenueForm";
 
 function ManagerProfile() {
-  const { setUser } = useContext(UserContext)
-  const navigate = useNavigate()
-
-  const handleSignOut = () => {
-    logout(setUser, navigate)
-  }
 
   return (
-    <div>
-      <h1>Manager Profile</h1>
-      {/* Profile details here */}
-
-      {/* Sign out button */}
-      <button onClick={handleSignOut}>Sign Out</button>
+    <div className="pt-4">
+      <div className="text-center">
+        <h1>Venue Manager Profile</h1>
+      </div>
+      <ProfileCard />
+      <div className="col-md-8 container pt-5">
+        <h2>Create a Venue</h2>
+        <hr />
+        <CreateVenueForm />
+      </div>
     </div>
-  )
+  );
 }
 
-export default ManagerProfile
+export default ManagerProfile;

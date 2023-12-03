@@ -8,7 +8,6 @@ import { UserContext } from "../utilities/UserContext"
 function NavBar() {
   const [showSidebar, setShowSidebar] = useState(false)
   const { user } = useContext(UserContext)
-  console.log("Current User: ", user)
 
   function toggleSidebar() {
     setShowSidebar(!showSidebar)
@@ -94,16 +93,29 @@ function NavBar() {
               <li className="nav-item mx-2"></li>
             </ul>
             <div className="d-flex flex-column justify-content-center align-items-center gap-3 flex-lg mx-4">
-              <NavLink
-                to="/MyBookings"
-                className={({ isActive }) =>
-                  `${classes.icon} ${isActive ? classes.iconActive : ""} ${
-                    showSidebar ? classes.iconPadding : ""
-                  }`
-                }
-              >
-                <FontAwesomeIcon icon={faCalendarDays} className={`fs-4`} />
-              </NavLink>
+              {user ? (
+                <NavLink
+                  to={user.venueManager ? "/ManagerBookings" : "/UserBookings"}
+                  className={({ isActive }) =>
+                    `${classes.icon} ${isActive ? classes.iconActive : ""} ${
+                      showSidebar ? classes.iconPadding : ""
+                    }`
+                  }
+                >
+                  <FontAwesomeIcon icon={faCalendarDays} className={`fs-4`} />
+                </NavLink>
+              ) : (
+                <NavLink
+                  to="/MyBookings"
+                  className={({ isActive }) =>
+                    `${classes.icon} ${isActive ? classes.iconActive : ""} ${
+                      showSidebar ? classes.iconPadding : ""
+                    }`
+                  }
+                >
+                  <FontAwesomeIcon icon={faCalendarDays} className={`fs-4`} />
+                </NavLink>
+              )}
             </div>
             <div className="d-flex flex-column justify-content-center align-items-center gap-3 flex-lg mx-4">
               {user ? (

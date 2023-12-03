@@ -1,46 +1,29 @@
-@import "../variables.scss";
+@import "../../variables.scss";
 
-.venueImageContainer {
+.bookingInfoCard {
+  padding: 10px;
   border-radius: 10px;
+  border: 2px solid $secondary;
+  margin-bottom: 20px;
 }
 
-.venueImage {
-  width: 100%;
-  height: 400px;
+.bookingsMedia {
+  height: 64px;
+  width: 64px;
   object-fit: cover;
   border-radius: 10px;
 }
 
-.venueTitle {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-}
-
-.table {
-  padding: 5px 5px 5px;
-  border-radius: 5px;
-  border-color: black;
-  background-color: $primary;
-}
-
-.tableIcon {
-  color: $bg;
-}
-
-.stars {
-  color: $secondary;
-}
-
-.venuebtn {
-  font-size: 1rem;
+.bookingTitle {
   text-decoration: none;
-  background-color: $primary;
+}
+.cancelBtn {
+  text-decoration: none;
+  background-color: red;
   color: white;
+  border: 1px solid $secondary;
+  padding: 8px;
   border-radius: 10px;
-  border: solid;
-  padding: 10px 15px;
-  font-weight: bold;
 
   &:hover {
     background-color: $hover;
@@ -48,7 +31,16 @@
   }
 }
 
-.loginPopup {
+.canceledBtn {
+  background-color: rgb(173, 173, 173);
+  color: rgb(255, 255, 255);
+  pointer-events: none;
+  padding: 8px;
+  border-radius: 10px;
+  border: solid;
+}
+
+.confirmationPopup {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -60,12 +52,27 @@
   z-index: 10;
 }
 
-.loginPopup p {
+.confirmationPopup p {
   margin-bottom: 10px;
   text-align: center;
 }
 
-.loginBtn {
+.yesBtn {
+  text-decoration: none;
+  background-color: red;
+  color: white;
+  border: solid;
+  padding: 8px;
+  width: 50%;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: $hover;
+    transition: background-color 0.3s ease;
+  }
+}
+
+.noBtn {
   text-decoration: none;
   background-color: $primary;
   color: white;
@@ -76,21 +83,6 @@
 
   &:hover {
     background-color: $bg;
-    transition: background-color 0.3s ease;
-  }
-}
-
-.cancelBtn {
-  text-decoration: none;
-  background-color: $red;
-  color: white;
-  border: solid;
-  padding: 8px;
-  width: 50%;
-  border-radius: 10px;
-
-  &:hover {
-    background-color: $hover;
     transition: background-color 0.3s ease;
   }
 }

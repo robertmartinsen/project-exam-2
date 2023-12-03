@@ -1,12 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { Form, Button, Alert, InputGroup } from "react-bootstrap"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import classes from "../styles/components/Auth.module.scss"
 import { loginUser } from "../services/api/auth"
-import { useNavigate } from "react-router-dom"
-import { useContext } from "react"
 import { UserContext } from "../utilities/UserContext"
 
 function Login() {
@@ -30,7 +28,9 @@ function Login() {
 
     try {
       const response = await loginUser({ email, password })
-      console.log("Login successful", response)
+
+      const token = response.accessToken
+      localStorage.setItem("token", token)
 
       const userData = {
         name: response.name,
@@ -40,7 +40,6 @@ function Login() {
       }
 
       localStorage.setItem("user", JSON.stringify(userData))
-
       setUser(userData)
 
       navigate("/")

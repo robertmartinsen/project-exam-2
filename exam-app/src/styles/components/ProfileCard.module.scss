@@ -1,1 +1,65 @@
 @import "../variables.scss";
+
+.profileBox {
+  padding: 10px;
+  border-radius: 10px;
+  background: linear-gradient($primary, $bg);
+  border: 2px solid $primary;
+  border-color: $primary;
+}
+
+.avatarContainer {
+  height: 100px;
+  width: 100px;
+  padding: 5px;
+  border-radius: 10px;
+  border-color: $secondary;
+  background: linear-gradient($secondary, $hover);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.defaultAvatar {
+  height: 50px;
+  object-fit: cover;
+  max-width: 100%;
+  padding: 5px;
+}
+
+.avatar {
+  height: 100px;
+  object-fit: cover;
+  max-width: 100%;
+  padding: 5px;
+  border-radius: 10px;
+  border-color: $secondary;
+}
+
+.editProfileBtn {
+  text-decoration: none;
+  background-color: white;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1.5px solid $secondary;
+
+  &:hover {
+    color: white;
+    background-color: $hover;
+    transition: background-color 0.3s ease;
+  }
+}
+
+.signoutBtn {
+  text-decoration: none;
+  background-color: $secondary;
+  color: white;
+  border: 1px solid $secondary;
+  padding: 8px;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: $hover;
+    transition: background-color 0.3s ease;
+  }
+}

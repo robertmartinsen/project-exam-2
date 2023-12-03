@@ -1,0 +1,126 @@
+@import "../../variables.scss";
+
+.venueInfoCard {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid $secondary;
+  margin-bottom: 20px;
+}
+
+.venueMedia {
+  height: 64px;
+  width: 64px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.venueTitle {
+  text-decoration: none;
+}
+
+.editBtn {
+  text-decoration: none;
+  background-color: $primary;
+  color: white;
+  border: 1px solid;
+  padding: 8px;
+  border-radius: 10px;
+  width: 50%;
+
+  &:hover {
+    background-color: $bg;
+    transition: background-color 0.3s ease;
+  }
+}
+
+.deleteBtn {
+  text-decoration: none;
+  background-color: red;
+  color: white;
+  border: 1px solid $secondary;
+  padding: 8px;
+  border-radius: 10px;
+  width: 50%;
+
+  &:hover {
+    background-color: $hover;
+    transition: background-color 0.3s ease;
+  }
+}
+
+.confirmationPopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.confirmationPopup p {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.yesBtn {
+  text-decoration: none;
+  background-color: red;
+  color: white;
+  border: solid;
+  padding: 8px;
+  width: 50%;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: $hover;
+    transition: background-color 0.3s ease;
+  }
+}
+
+.noBtn {
+  text-decoration: none;
+  background-color: $primary;
+  color: white;
+  border: solid;
+  padding: 8px;
+  width: 50%;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: $bg;
+    transition: background-color 0.3s ease;
+  }
+}
+
+.editPopup {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  overflow-y: auto;
+  max-height: 80vh;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.checkbox {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #dee2e6;
+}
+
+@media (max-width: 786px) {
+  .editBtn {
+    width: 75%;
+  }
+
+  .deleteBtn {
+    width: 75%;
+  }
+}

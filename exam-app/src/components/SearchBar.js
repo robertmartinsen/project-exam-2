@@ -17,7 +17,7 @@ function SearchBar({
 }) {
   return (
     <div className="bg-secondary">
-      <div className="search-bar-container container justify-content-center d-flex pt-2 pb-2">
+      <div className="container justify-content-center d-flex pt-2 pb-2">
         <img
           className={`${classes.barsIcon}`}
           src={bars}

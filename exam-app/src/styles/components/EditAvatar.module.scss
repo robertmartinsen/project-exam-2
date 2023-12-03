@@ -1,0 +1,21 @@
+@import "../variables.scss";
+
+.editForm {
+  border: none;
+  border-radius: 8px 0px 0px 8px;
+  padding: 8px;
+}
+
+.confirmBtn {
+  text-decoration: none;
+  background-color: $secondary;
+  color: white;
+  border: none;
+  border-radius: 0px 8px 8px 0px;
+  padding: 8px;
+
+  &:hover {
+    background-color: $hover;
+    transition: background-color 0.3s ease;
+  }
+}

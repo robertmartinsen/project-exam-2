@@ -1,24 +1,73 @@
-import React, { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import React, { useEffect, useState, useContext } from "react"
+import { useParams, useNavigate } from "react-router-dom"
 import { fetchVenueById } from "../services/api/venuebyid"
-import { NavLink } from "react-router-dom"
+import { BookingsByVenue } from "../components/BookingsByVenue"
 import classes from "../styles/pages/VenueById.module.scss"
 import { Table } from "react-bootstrap"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCheck, faX, faStar } from "@fortawesome/free-solid-svg-icons"
+import { fetchVenueWithBookings } from "../services/api/bookings"
+import { UserContext } from "../utilities/UserContext"
 
 function VenueById() {
   const { venueId } = useParams()
   const [venue, setVenue] = useState(null)
+  const navigate = useNavigate()
+  const { user } = useContext(UserContext)
 
   useEffect(() => {
     const getVenueDetails = async () => {
-      const venueDetails = await fetchVenueById(venueId)
-      setVenue(venueDetails)
+      try {
+        const venueDetails = await fetchVenueById(venueId)
+        setVenue(venueDetails)
+      } catch (error) {
+        console.error("Error fetching venue details:", error)
+      }
     }
 
     getVenueDetails()
   }, [venueId])
+
+  useEffect(() => {
+    const getVenueDetails = async () => {
+      try {
+        const token = localStorage.getItem("token")
+        if (
+          user &&
+          user.role === "venueManager" &&
+          user.venues.includes(venueId)
+        ) {
+          const venueData = await fetchVenueWithBookings(venueId, token)
+          console.log("Venue data with bookings:", venueData)
+          setVenue(venueData) // Setting the venue state with the fetched data
+        }
+      } catch (error) {
+        console.error("Error fetching venue details with bookings:", error)
+      }
+    }
+
+    getVenueDetails()
+  }, [venueId, user])
+
+  const [showBookingRestriction, setShowBookingRestriction] = useState(false)
+  const [bookingRestrictionMessage, setBookingRestrictionMessage] = useState("")
+
+  const handleBookingClick = () => {
+    if (!user) {
+      navigate("/login")
+      return
+    }
+
+    if (user.venueManager) {
+      setBookingRestrictionMessage(
+        "Venue managers cannot book venues. Log in or sign up as a regular user."
+      )
+      setShowBookingRestriction(true)
+      return
+    }
+
+    navigate(`/BookingConfirmation/${venueId}`)
+  }
 
   if (!venue) {
     return <div>Loading...</div>
@@ -50,6 +99,10 @@ function VenueById() {
     return stars
   }
 
+  if (!venue) {
+    return <div>Loading...</div>
+  }
+
   return (
     <div className="container col-md-6 pt-5">
       <div className="row justify-content-center d-flex">
@@ -66,9 +119,9 @@ function VenueById() {
             <p className="fw-bold">{venue.price} $ / Night</p>
             <p>{displayStars()}</p>
             <div className="justify-content-right d-flex">
-              <NavLink to="/Login" className={classes.venuebtn}>
+              <button onClick={handleBookingClick} className={classes.venuebtn}>
                 Book Venue
-              </NavLink>
+              </button>
             </div>
           </div>
           <hr />
@@ -104,6 +157,37 @@ function VenueById() {
           </div>
         </div>
       </div>
+
+      {showBookingRestriction && (
+        <div className={classes.loginPopup}>
+          <p>{bookingRestrictionMessage}</p>
+          <div className="justify-content-center d-flex row pt-3">
+            <div className="d-flex justify-content-center">
+              <button
+                className={classes.loginBtn}
+                onClick={() => navigate("/login")}
+              >
+                Log In
+              </button>
+            </div>
+            <div className="pt-3 d-flex justify-content-center">
+              <button
+                className={classes.cancelBtn}
+                onClick={() => setShowBookingRestriction(false)}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <BookingsByVenue
+        venue={venue} // Make sure 'venue' is set correctly here
+        user={user} // Ensure 'user' is the current user object
+        venueId={venueId} // Confirm this is the correct ID
+        formatDate={formatDate} // Ensure this function is defined
+      />
     </div>
   )
 }

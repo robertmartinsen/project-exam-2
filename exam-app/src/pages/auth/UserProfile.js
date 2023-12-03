@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import ProfileCard from "../../components/ProfileCard"
+import ProfileCard from "../../components/User/ProfileCard"
 import { NavLink } from "react-bootstrap"
 import { fetchBookings } from "../../store/bookingsActions"
 import classes from "../../styles/pages/auth/UserBookings.module.scss"

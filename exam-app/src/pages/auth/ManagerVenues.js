@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { fetchVenuesByProfile, deleteVenue } from "../../services/api/venuebyid"
-import EditVenueForm from "../../components/EditVenueForm"
+import { fetchVenuesByProfile, deleteVenue } from "../../services/venueService"
+import EditVenueForm from "../../components/Venue/EditVenueForm"
 import classes from "../../styles/pages/auth/ManagerVenues.module.scss"
 
 function ManagerVenues() {

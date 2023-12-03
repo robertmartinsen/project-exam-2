@@ -1,14 +1,13 @@
 import React from "react"
-import NavBar from "./navbar"
-import Footer from "./footer"
+import Navbar from "./Navbar.jsx"
+import Footer from "./Footer.jsx"
 import { Outlet } from "react-router-dom"
 import "../styles/components/layout.scss"
 
-function Layout (){
-  
+function Layout() {
   return (
     <div className="layout-container">
-      <NavBar />
+      <Navbar />
       <div className="layout-content">
         <Outlet />
       </div>

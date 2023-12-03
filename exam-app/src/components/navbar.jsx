@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser, faCalendarDays } from "@fortawesome/free-solid-svg-icons"
 import { UserContext } from "../utilities/UserContext"
 
-function NavBar() {
+function Navbar() {
   const [showSidebar, setShowSidebar] = useState(false)
   const { user } = useContext(UserContext)
 
@@ -162,4 +162,4 @@ function NavBar() {
   )
 }
 
-export default NavBar
+export default Navbar

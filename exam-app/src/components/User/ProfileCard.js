@@ -1,11 +1,11 @@
 import React, { useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
-import { UserContext } from "../utilities/UserContext"
-import { logout } from "../services/logout"
+import { UserContext } from "../../utilities/UserContext"
+import { logout } from "../../services/logoutService"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser } from "@fortawesome/free-solid-svg-icons"
-import classes from "../styles/components/ProfileCard.module.scss"
-import EditAvatarForm from "./EditAvatar"
+import classes from "../../styles/components/ProfileCard.module.scss"
+import EditAvatarForm from "../User/EditAvatar"
 
 function ProfileCard() {
   const { user, setUser } = useContext(UserContext)

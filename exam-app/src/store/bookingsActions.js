@@ -1,5 +1,5 @@
-import { BOOKINGSDETAIL_URL } from "../services/api/endpoints"
-import { BOOKINGS_URL } from "../services/api/endpoints"
+import { BOOKINGSDETAIL_URL } from "../services/endpoints"
+import { BOOKINGS_URL } from "../services/endpoints"
 
 export const addBooking = (booking) => ({
   type: "ADD_BOOKING",

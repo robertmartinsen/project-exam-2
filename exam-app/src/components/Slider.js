@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Carousel from "react-bootstrap/Carousel"
-import fetchVenues from "../services/api/venues"
+import { fetchVenues } from "../services/venueService"
 import classes from "../styles/components/Slider.module.scss"
 
 function Slider() {

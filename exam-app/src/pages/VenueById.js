@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useContext } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import { fetchVenueById } from "../services/api/venuebyid"
-import { BookingsByVenue } from "../components/BookingsByVenue"
+import { fetchVenueById } from "../services/venueService"
+import { fetchVenueWithBookings } from "../services/bookingService"
+import { BookingsByVenue } from "../components/Venue/BookingsByVenue"
 import classes from "../styles/pages/VenueById.module.scss"
 import { Table } from "react-bootstrap"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCheck, faX, faStar } from "@fortawesome/free-solid-svg-icons"
-import { fetchVenueWithBookings } from "../services/api/bookings"
 import { UserContext } from "../utilities/UserContext"
 
 function VenueById() {
@@ -183,10 +183,10 @@ function VenueById() {
       )}
 
       <BookingsByVenue
-        venue={venue} // Make sure 'venue' is set correctly here
-        user={user} // Ensure 'user' is the current user object
-        venueId={venueId} // Confirm this is the correct ID
-        formatDate={formatDate} // Ensure this function is defined
+        venue={venue} 
+        user={user} 
+        venueId={venueId}
+        formatDate={formatDate} 
       />
     </div>
   )

@@ -8,10 +8,15 @@ const EditAvatarForm = ({ userName, token, setUser, setEditMode }) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      const updatedAvatar = await updateAvatar(userName, avatarUrl, token)
+      const updatedAvatarResponse = await updateAvatar(
+        userName,
+        avatarUrl,
+        token
+      )
+      const newAvatarUrl = updatedAvatarResponse.avatar
       setUser((prevUser) => ({
         ...prevUser,
-        avatar: updatedAvatar,
+        avatar: newAvatarUrl,
       }))
       setEditMode(false)
     } catch (error) {

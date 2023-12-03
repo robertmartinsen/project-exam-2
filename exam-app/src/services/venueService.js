@@ -44,15 +44,15 @@ export const deleteVenue = async (venueId) => {
   }
 }
 
-export const updateVenue = async (venueId, venueData) => {
+export const updateVenue = (venueId, venueData) => {
   const url = `${VENUES_URL}/${venueId}`
   return apiRequest(url, "PUT", venueData)
 }
 
-export const fetchVenues = async () => {
+export const fetchVenues = () => {
   return apiRequest(VENUES_URL, "GET", null, false)
 }
 
-export const createVenue = async (venueData) => {
+export const createVenue = (venueData) => {
   return apiRequest(VENUES_URL, "POST", venueData)
 }

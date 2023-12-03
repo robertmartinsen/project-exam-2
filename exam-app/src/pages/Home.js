@@ -3,31 +3,45 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import classes from "../styles/pages/Home.module.scss"
 import { NavLink } from "react-router-dom"
-import fetchVenues from "../services/api/venues"
+import { fetchVenues } from "../services/venueService"
+import { sortVenues } from "../utilities/sort"
 import Slider from "../components/Slider"
 
 function Home() {
-  const [upcomingVenues, setUpcomingVenues] = useState([])
+  const [upcomingVenues, setUpcomingVenues] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchSortedVenues = async () => {
       try {
-        const fetchedVenues = await fetchVenues()
-        const sortedVenues = fetchedVenues
-          .sort((a, b) => new Date(b.created) - new Date(a.created))
-          .slice(0, 6)
-        setUpcomingVenues(sortedVenues)
+        const fetchedVenues = await fetchVenues();
+        const sortedVenues = sortVenues(fetchedVenues, "newest").slice(0, 6);
+        setUpcomingVenues(sortedVenues);
       } catch (error) {
-        console.error("Failed to fetch venues:", error)
+        setError("Failed to fetch venues. Please try again later.");
+      } finally {
+        setLoading(false);
       }
-    }
+    };
 
-    fetchSortedVenues()
-  }, [])
+    fetchSortedVenues();
+  }, []);
 
   const formatDate = (dateString) => {
-    const options = { year: "numeric", month: "long", day: "numeric" }
-    return new Date(dateString).toLocaleDateString(undefined, options)
+    return new Date(dateString).toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  };
+
+  if (loading) {
+    return <div>Loading...</div>; 
+  }
+
+  if (error) {
+    return <div>{error}</div>; 
   }
 
   return (

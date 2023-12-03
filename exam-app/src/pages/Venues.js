@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import classes from "../styles/pages/Venues.module.scss"
 import { NavLink } from "react-router-dom"
-import fetchVenues from "../services/api/venues"
+import { fetchVenues } from "../services/venueService"
 import SearchBar from "../components/SearchBar"
 import { sortVenues } from "../utilities/sort"
 import { filterVenues } from "../utilities/filter"

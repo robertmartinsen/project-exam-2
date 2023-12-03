@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser, faLock, faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import { NavLink } from "react-router-dom"
 import classes from "../styles/components/Auth.module.scss"
-import { registerUser } from "../services/api/auth"
+import { registerUser } from "../services/authService"
 import { useNavigate } from "react-router-dom"
 
 function Register() {

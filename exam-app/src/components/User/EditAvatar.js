@@ -1,25 +1,23 @@
 import React, { useState } from "react"
-import { updateAvatar } from "../services/profileServices"
-import classes from "../styles/components/EditAvatar.module.scss"
+import { updateAvatar } from "../../services/profileService"
+import classes from "../../styles/components/EditAvatar.module.scss"
 
 const EditAvatarForm = ({ userName, token, setUser, setEditMode }) => {
   const [avatarUrl, setAvatarUrl] = useState("")
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
     try {
-      const updatedAvatar = await updateAvatar(userName, avatarUrl, token);
-      setUser(prevUser => ({
+      const updatedAvatar = await updateAvatar(userName, avatarUrl, token)
+      setUser((prevUser) => ({
         ...prevUser,
-        avatar: updatedAvatar
-      }));
-      setEditMode(false);
+        avatar: updatedAvatar,
+      }))
+      setEditMode(false)
     } catch (error) {
-      console.error("Failed to update avatar:", error);
+      console.error("Failed to update avatar:", error)
     }
-  };
-
-  
+  }
 
   return (
     <div>

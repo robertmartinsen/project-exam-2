@@ -1,9 +1,8 @@
 import React from "react"
-import ProfileCard from "../../components/ProfileCard"
-import CreateVenueForm from "../../components/CreateVenueForm";
+import ProfileCard from "../../components/User/ProfileCard"
+import CreateVenueForm from "../../components/Venue/CreateVenueForm"
 
 function ManagerProfile() {
-
   return (
     <div className="pt-4">
       <div className="text-center">
@@ -16,7 +15,7 @@ function ManagerProfile() {
         <CreateVenueForm />
       </div>
     </div>
-  );
+  )
 }
 
-export default ManagerProfile;
+export default ManagerProfile

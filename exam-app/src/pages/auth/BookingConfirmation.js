@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useContext } from "react"
 import Calendar from "react-calendar"
 import "react-calendar/dist/Calendar.css"
-import { fetchVenueById } from "../../services/api/venuebyid"
-import { createBooking } from "../../services/api/bookings"
-import { fetchBookings } from "../../services/api/bookings"
+import { fetchVenueById } from "../../services/venueService"
+import { createBooking, fetchBookingById } from "../../services/bookingService"
+import { fetchBookings } from "../../services/bookingService"
 import { useParams, useNavigate } from "react-router-dom"
 import { UserContext } from "../../utilities/UserContext"
 import { useDispatch } from "react-redux"
 import { addBooking } from "../../store/bookingSlice"
-import { fetchBookingById } from "../../services/api/bookings"
 import classes from "../../styles/pages/auth/BookingConfirmation.module.scss"
 
 const BookingConfirmation = () => {

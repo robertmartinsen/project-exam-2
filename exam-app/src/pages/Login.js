@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons"
 import { NavLink, useNavigate } from "react-router-dom"
 import classes from "../styles/components/Auth.module.scss"
-import { loginUser } from "../services/api/auth"
+import { loginUser } from "../services/authService"
 import { UserContext } from "../utilities/UserContext"
 
 function Login() {

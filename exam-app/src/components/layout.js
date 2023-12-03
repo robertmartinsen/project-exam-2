@@ -2,13 +2,13 @@ import React from "react"
 import NavBar from "./navbar"
 import Footer from "./footer"
 import { Outlet } from "react-router-dom"
-import "./layout.scss"
+import "../styles/components/layout.scss"
 
-function Layout({ cart }) {
+function Layout (){
   
   return (
     <div className="layout-container">
-      <NavBar cart={cart} />
+      <NavBar />
       <div className="layout-content">
         <Outlet />
       </div>

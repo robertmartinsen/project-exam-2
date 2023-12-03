@@ -1,0 +1,32 @@
+@import "../../variables.scss";
+
+.bookingCard {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid $primary;
+  
+}
+
+.bookingMedia {
+  height: 128px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.confirmBooking {
+  text-decoration: none;
+  background-color: $secondary;
+  color: white;
+  border: 1px solid $secondary;
+  padding: 8px;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: $hover;
+    transition: background-color 0.3s ease;
+  }
+}
+
+.dateError {
+  color: $secondary;
+}

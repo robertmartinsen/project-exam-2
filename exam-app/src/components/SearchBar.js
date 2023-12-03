@@ -1,7 +1,7 @@
 import React from "react"
-import bars from "../pages/images/sidebars.svg"
+import bars from "../assets/sidebars.svg"
 import PropTypes from "prop-types"
-import classes from "./SearchBar.module.scss"
+import classes from "../styles/components/SearchBar.module.scss"
 import FilterBox from "./FilterBox"
 
 function SearchBar({
@@ -17,11 +17,12 @@ function SearchBar({
 }) {
   return (
     <div className="bg-secondary">
-      <div className="search-bar-container container justify-content-center d-flex pt-2 pb-2">
+      <div className="container justify-content-center d-flex pt-2 pb-2">
         <img
           className={`${classes.barsIcon}`}
           src={bars}
           onClick={onSortFilterToggle}
+          alt="bars"
         />
         <input
           className={`col-md-6 ${classes.searchBar}`}

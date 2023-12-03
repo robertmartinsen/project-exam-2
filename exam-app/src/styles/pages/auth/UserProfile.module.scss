@@ -1,0 +1,15 @@
+@import "../../variables.scss";
+
+.venuesBox {
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.venuesBtn {
+  color: $secondary;
+
+  &:hover {
+    color: $hover;
+  }
+}

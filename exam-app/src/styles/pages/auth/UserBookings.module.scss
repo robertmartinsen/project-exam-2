@@ -1,0 +1,88 @@
+@import "../../variables.scss";
+
+.bookingInfoCard {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid $secondary;
+  margin-bottom: 20px;
+}
+
+.bookingsMedia {
+  height: 64px;
+  width: 64px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.bookingTitle {
+  text-decoration: none;
+}
+.cancelBtn {
+  text-decoration: none;
+  background-color: red;
+  color: white;
+  border: 1px solid $secondary;
+  padding: 8px;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: $hover;
+    transition: background-color 0.3s ease;
+  }
+}
+
+.canceledBtn {
+  background-color: rgb(173, 173, 173);
+  color: rgb(255, 255, 255);
+  pointer-events: none;
+  padding: 8px;
+  border-radius: 10px;
+  border: solid;
+}
+
+.confirmationPopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.confirmationPopup p {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.yesBtn {
+  text-decoration: none;
+  background-color: red;
+  color: white;
+  border: solid;
+  padding: 8px;
+  width: 50%;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: $hover;
+    transition: background-color 0.3s ease;
+  }
+}
+
+.noBtn {
+  text-decoration: none;
+  background-color: $primary;
+  color: white;
+  border: solid;
+  padding: 8px;
+  width: 50%;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: $bg;
+    transition: background-color 0.3s ease;
+  }
+}

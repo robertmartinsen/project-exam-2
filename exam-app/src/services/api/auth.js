@@ -2,9 +2,9 @@ import { REGISTER_URL, LOGIN_URL } from "./endpoints"
 
 export const registerUser = async (userData) => {
   const response = await fetch(REGISTER_URL, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       name: userData.name,
@@ -13,15 +13,15 @@ export const registerUser = async (userData) => {
       avatar: userData.avatar || null,
       venueManager: userData.venueManager,
     }),
-  });
+  })
 
   if (!response.ok) {
-    const errorData = await response.json();
-    throw new Error(errorData.message || 'Could not register user.');
+    const errorData = await response.json()
+    throw new Error(errorData.message || "Could not register user.")
   }
 
-  return await response.json();
-};
+  return await response.json()
+}
 
 export const loginUser = async (credentials) => {
   const response = await fetch(LOGIN_URL, {

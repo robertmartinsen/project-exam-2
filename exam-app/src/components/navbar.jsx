@@ -1,16 +1,18 @@
-import React, { useState } from "react"
-import classes from "./navbar.module.scss"
+import React, { useState, useContext } from "react"
+import classes from "../styles/components/navbar.module.scss"
 import { NavLink } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faUser } from "@fortawesome/free-solid-svg-icons"
-import { faCalendarDays } from "@fortawesome/free-solid-svg-icons"
+import { faUser, faCalendarDays } from "@fortawesome/free-solid-svg-icons"
+import { UserContext } from "../utilities/UserContext"
 
 function NavBar() {
   const [showSidebar, setShowSidebar] = useState(false)
+  const { user } = useContext(UserContext)
 
   function toggleSidebar() {
     setShowSidebar(!showSidebar)
   }
+
   return (
     <nav className={`navbar navbar-expand-lg navbar-dark ${classes.nav}`}>
       <div className="container col-md-8">
@@ -90,30 +92,68 @@ function NavBar() {
               </li>
               <li className="nav-item mx-2"></li>
             </ul>
-            <div></div>
             <div className="d-flex flex-column justify-content-center align-items-center gap-3 flex-lg mx-4">
-              <NavLink
-                to="/MyBookings"
-                className={({ isActive }) =>
-                  `${classes.icon} ${isActive ? classes.iconActive : ""} ${
-                    showSidebar ? classes.iconPadding : ""
-                  }`
-                }
-              >
-                <FontAwesomeIcon icon={faCalendarDays} className={`fs-4`} />
-              </NavLink>
+              {user ? (
+                <NavLink
+                  to={user.venueManager ? "/ManagerBookings" : "/UserBookings"}
+                  className={({ isActive }) =>
+                    `${classes.icon} ${isActive ? classes.iconActive : ""} ${
+                      showSidebar ? classes.iconPadding : ""
+                    }`
+                  }
+                >
+                  <FontAwesomeIcon icon={faCalendarDays} className={`fs-4`} />
+                </NavLink>
+              ) : (
+                <NavLink
+                  to="/MyBookings"
+                  className={({ isActive }) =>
+                    `${classes.icon} ${isActive ? classes.iconActive : ""} ${
+                      showSidebar ? classes.iconPadding : ""
+                    }`
+                  }
+                >
+                  <FontAwesomeIcon icon={faCalendarDays} className={`fs-4`} />
+                </NavLink>
+              )}
             </div>
             <div className="d-flex flex-column justify-content-center align-items-center gap-3 flex-lg mx-4">
-              <NavLink
-                to="/Login"
-                className={({ isActive }) =>
-                  `${classes.icon} ${isActive ? classes.iconActive : ""} ${
-                    showSidebar ? classes.iconPadding : ""
-                  }`
-                }
-              >
-                <FontAwesomeIcon icon={faUser} className={`fs-4`} />
-              </NavLink>
+              {user ? (
+                user.venueManager ? (
+                  <NavLink
+                    to="/ManagerProfile"
+                    className={({ isActive }) =>
+                      `${classes.icon} ${isActive ? classes.iconActive : ""} ${
+                        showSidebar ? classes.iconPadding : ""
+                      }`
+                    }
+                  >
+                    <FontAwesomeIcon icon={faUser} className={`fs-4`} />
+                  </NavLink>
+                ) : (
+                  <NavLink
+                    to="/UserProfile"
+                    className={({ isActive }) =>
+                      `${classes.icon} ${isActive ? classes.iconActive : ""} ${
+                        showSidebar ? classes.iconPadding : ""
+                      }`
+                    }
+                  >
+                    <FontAwesomeIcon icon={faUser} className={`fs-4`} />
+                  </NavLink>
+                )
+              ) : (
+                <NavLink
+                  to="/Login"
+                  className={({ isActive }) =>
+                    `${classes.icon} ${isActive ? classes.iconActive : ""} ${
+                      showSidebar ? classes.iconPadding : ""
+                    }`
+                  }
+                >
+                  <FontAwesomeIcon icon={faUser} className={`fs-4`} />
+                </NavLink>
+              )}
             </div>
           </div>
         </div>

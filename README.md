@@ -57,7 +57,7 @@ npm install
 3. App directory:
 
 ```
-cd react-ca-app
+cd exam-app
 ```
 
 4. Run the app:
